@@ -6,14 +6,14 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/02/01 21:15:48 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2019/02/01 22:29:17 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/02/12 15:25:25 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../include/fractol.h"
 
-void	set_julia( double x, double y, t_window *window)
+void	set_julia(double x, double y, t_window *window)
 {
 	window->fractal.c_r = 0.285 + window->mod_fract.c_r;
 	window->fractal.c_i = 0.01 + window->mod_fract.c_i;

@@ -6,7 +6,7 @@
 #    By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2018/11/06 19:11:00 by gmonacho     #+#   ##    ##    #+#        #
-#    Updated: 2019/02/01 22:21:54 by gmonacho    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/02/12 13:26:30 by gmonacho    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -18,6 +18,8 @@ SRC = ./src/main.c \
 	  ./src/window/open_window.c \
 	  ./src/window/window_loop.c \
 	  ./src/window/refresh_window.c \
+	  ./src/window/line_put.c \
+	  ./src/window/draw_square.c \
 	  ./src/event/key_press.c \
 	  ./src/event/key_release.c \
 	  ./src/event/key_event.c \
@@ -29,7 +31,9 @@ SRC = ./src/main.c \
 	  ./src/fractal/put_fractal.c \
 	  ./src/fractal/set_julia.c \
 	  ./src/fractal/set_mandelbrot.c \
-	  ./src/create_point.c 
+	  ./src/fractal/put_square.c \
+	  ./src/user_interface/key_info.c \
+	  ./src/create_point.c
 
 OBJ = $(SRC:%.c=%.o)
 

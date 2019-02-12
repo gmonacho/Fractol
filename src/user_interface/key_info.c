@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   mouse_event.c                                    .::    .:/ .      .::   */
+/*   key_info.c                                       .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/02/01 22:15:44 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2019/02/11 17:01:11 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/02/12 13:19:56 by gmonacho     #+#   ##    ##    #+#       */
+/*   Updated: 2019/02/12 14:26:15 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../include/fractol.h"
 
-static void		modify_fractal(t_window *window)
+void	key_info(t_window *window)
 {
-	if (window->settings.mod_key)
-	{
-		if (window->fractal.nb == 1)
-		{
-			window->mod_fract.c_r += (double)(window->mouse.drag.x) / 100000.0;
-			window->mod_fract.c_i += (double)(window->mouse.drag.y) / 100000.0;
-		}
-		else if (window->fractal.nb == 2)
-		{
-			window->mod_fract.z_r += (double)(window->mouse.drag.x) / 1000.0;
-			window->mod_fract.z_i += (double)(window->mouse.drag.y) / 1000.0;
-		}
-	}
-}
-
-void			mouse_event(t_window *window)
-{
-	modify_fractal(window);
+	window->inf_ptr = mlx_new_window(window->mlx_ptr, 400, 150, "Key Info");
+	mlx_string_put(window->mlx_ptr, window->inf_ptr, 70, 0, 0xFFFFFF, "Key Info");
+	mlx_string_put(window->mlx_ptr, window->inf_ptr, 0, 20, 0xFFFFFF, "Change Iteration : q <--> e");
+	mlx_string_put(window->mlx_ptr, window->inf_ptr, 0, 40, 0xFFFFFF, "Modify Fractal : Mouse Drag");
+	mlx_string_put(window->mlx_ptr, window->inf_ptr, 0, 60, 0xFFFFFF, "Un/Dis[able] Mouse : Space Bar");
 }

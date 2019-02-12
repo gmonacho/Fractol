@@ -6,7 +6,7 @@
 /*   By: gmonacho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/06 19:18:33 by gmonacho     #+#   ##    ##    #+#       */
-/*   Updated: 2019/02/01 22:33:35 by gmonacho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/02/12 15:46:00 by gmonacho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -39,8 +39,8 @@ typedef struct		s_size
 
 typedef struct		s_point
 {
-	int					x;
-	int					y;
+	int				x;
+	int				y;
 }					t_point;
 
 typedef struct		s_cursor
@@ -74,13 +74,22 @@ typedef struct		s_img
 
 typedef struct		s_settings
 {
-	int				zoom_x;
-	int				zoom_y;
+	double			zoom_x;
+	double			zoom_y;
+	double			zoom;
+	double			img_x;
+	double			img_y;
+	t_point			scroll;
 	int				max_ite;
+	int				mod_key;
 }					t_settings;
 
 typedef struct		s_fractal
 {
+	double			x1;
+	double			x2;
+	double			y1;
+	double			y2;
 	double			c_r;
 	double			c_i;
 	double			z_r;
@@ -92,6 +101,7 @@ typedef struct		s_window
 {
 	void			*mlx_ptr;
 	void			*win_ptr;
+	void			*inf_ptr;
 	t_mouse			mouse;
 	t_keyboard		keyboard;
 	t_img			img;
@@ -110,17 +120,21 @@ int			mouse_release(int button, int x, int y, t_window *window);
 int			mouse_move(int x, int y, t_window *window);
 int			mouse_press(int button, int x, int y, t_window *window);
 void		mouse_event(t_window *window);
+t_point		mouse_drag(int new_x, int new_y);
 
 void		open_window(t_window *window);
 void		refresh_window(t_window *window);
 int			window_loop(t_window *window);
 int			close_window(t_window *window);
+void		line_put(t_point p1, t_point p2, t_window *window);
+void		draw_square(t_window *window, t_point point, int size);
 
 void		mandelbrot(t_window *window);
 void		set_mandelbrot(double x, double y, t_window *window);
 void		put_fractal(t_window *window);
 void		set_julia(double x, double y, t_window *window);
+void		put_square(t_window *window, int n, t_point point, int size);
 
-t_point		mouse_drag(int new_x, int new_y);
+void		key_info(t_window *window);
 
 #endif
